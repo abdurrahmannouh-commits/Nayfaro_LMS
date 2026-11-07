@@ -106,13 +106,13 @@
 			v-model="showHelpModal"
 			v-model:articles="articles"
 			appName="learning"
-			title="Frappe Learning"
+			:title="brandName"
 			:logo="LMSLogo"
 			:afterSkip="(step) => capture('onboarding_step_skipped_' + step)"
 			:afterSkipAll="() => capture('onboarding_steps_skipped')"
 			:afterReset="(step) => capture('onboarding_step_reset_' + step)"
 			:afterResetAll="() => capture('onboarding_steps_reset')"
-			docsLink="https://docs.frappe.io/learning"
+			docsLink=""
 		/>
 		<IntermediateStepModal
 			v-model="showIntermediateModal"
@@ -128,6 +128,7 @@ import { usersStore } from '@/stores/user'
 import { seesOnboarding } from '@/utils/onboarding'
 import { useSidebar } from '@/stores/sidebar'
 import { useSettings } from '@/stores/settings'
+import { sessionStore } from '@/stores/session'
 import {
 	call,
 	ScrollArea,
@@ -188,6 +189,8 @@ import {
 
 const { userResource } = usersStore()
 let sidebarStore = useSidebar()
+const session = sessionStore()
+const brandName = computed(() => session.brand.name || 'Nayfaaro')
 const socket = inject('$socket')
 const sidebarLinks = ref(null)
 const { capture } = useTelemetry()

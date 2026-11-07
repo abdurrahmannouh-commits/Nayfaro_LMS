@@ -3444,7 +3444,7 @@ def get_progress_distribution(progressList: list):
 @frappe.whitelist(allow_guest=True)
 def get_pwa_manifest():
 	"""Web app manifest for installing the LMS as a PWA."""
-	title = frappe.db.get_single_value("Website Settings", "app_name") or "Frappe Learning"
+	title = frappe.db.get_single_value("Website Settings", "app_name") or "Nayfaaro"
 	route = get_lms_route()
 
 	# `display` was absent, so it defaulted to "browser" and the installed app
