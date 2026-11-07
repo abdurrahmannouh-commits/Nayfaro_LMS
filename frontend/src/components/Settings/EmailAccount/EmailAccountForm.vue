@@ -60,10 +60,13 @@
 					/>
 					<div class="text-wrap text-p-xs">
 						{{ selected.info }}
-						<a :href="safeUrl(selected.link)" v-external class="underline">{{
-							__('here')
-						}}</a
-						>.
+						<template v-if="selected.link">
+							{{ ' ' }}
+							<a :href="safeUrl(selected.link)" v-external class="underline">{{
+								__('here')
+							}}</a
+							>.
+						</template>
 					</div>
 				</div>
 

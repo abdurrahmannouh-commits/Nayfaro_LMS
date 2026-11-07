@@ -398,9 +398,9 @@ export const services: EmailService[] = [
 			return __('Connect any IMAP/POP3 and SMTP server')
 		},
 		info: __(
-			`Any IMAP/POP3 and SMTP server your provider gives you the host and port for. Read more`
+			`Any IMAP/POP3 and SMTP server your provider gives you the host and port for.`
 		),
-		link: 'https://docs.frappe.io/framework/user/en/setting-up-email',
+		link: '',
 		custom: true,
 	},
 ]

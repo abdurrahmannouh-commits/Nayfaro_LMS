@@ -13,7 +13,7 @@
 
 		<button
 			type="button"
-			class="absolute inset-x-0 bottom-0 py-4 text-center text-sm text-ink-gray-5 transition-colors hover:text-ink-gray-7"
+			class="absolute inset-x-0 bottom-0 py-4 text-center text-sm text-ink-gray-6 transition-colors hover:text-ink-gray-7"
 			@click="skipPersonaForm"
 		>
 			{{ __('Skip for now') }}
@@ -49,7 +49,7 @@ const steps = computed(() => [
 	{
 		key: 'discovery_source',
 		type: 'tags',
-		title: __('How did you hear about Frappe Learning?'),
+		title: __('How did you hear about us?'),
 		subtitle: PERSONALISE_HINT,
 		options: [
 			{
@@ -58,12 +58,12 @@ const steps = computed(() => [
 			},
 			{ label: __('GitHub'), value: 'GitHub' },
 			{
-				label: __('Already using Frappe / ERPNext'),
-				value: 'Already using Frappe / ERPNext',
+				label: __('Existing student or organization'),
+				value: 'Existing student or organization',
 			},
 			{
-				label: __('Frappe Cloud Marketplace'),
-				value: 'Frappe Cloud Marketplace',
+				label: __('Online search or community'),
+				value: 'Online search or community',
 			},
 			{ label: __('Social media'), value: 'Social media' },
 			{ label: __('Friend or colleague'), value: 'Friend or colleague' },
@@ -77,7 +77,7 @@ const steps = computed(() => [
 	{
 		key: 'usage_context',
 		type: 'tags',
-		title: __('Where will you be using Frappe Learning?'),
+		title: __('Where will you be using Nayfaaro?'),
 		subtitle: PERSONALISE_HINT,
 		options: [
 			{ label: __('School'), value: 'School' },

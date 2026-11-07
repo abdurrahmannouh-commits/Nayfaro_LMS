@@ -20,7 +20,6 @@
 			<EmptyStateActions
 				list="assignments"
 				:create-label="__('New Assignment')"
-				docs="https://docs.frappe.io/learning/assignments"
 				@create="openAssignmentForm('new')"
 			/>
 		</template>

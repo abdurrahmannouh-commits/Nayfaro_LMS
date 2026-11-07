@@ -68,7 +68,6 @@
 				list="batches"
 				:tab="currentTab"
 				:create-label="__('New Batch')"
-				docs="https://docs.frappe.io/learning/create-a-batch"
 				@create="newBatchFromEmptyState"
 			/>
 		</template>

@@ -23,7 +23,6 @@
 			<EmptyStateActions
 				list="quizzes"
 				:create-label="__('New Quiz')"
-				docs="https://docs.frappe.io/learning/quizzes"
 				@create="createQuiz"
 			/>
 		</template>

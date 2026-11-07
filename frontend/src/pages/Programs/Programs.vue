@@ -26,7 +26,6 @@
 				list="programs"
 				:tab="currentTab"
 				:create-label="__('New Program')"
-				docs="https://docs.frappe.io/learning/add-a-program"
 				@create="openForm('new')"
 			/>
 		</template>

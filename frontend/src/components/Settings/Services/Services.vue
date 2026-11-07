@@ -23,7 +23,7 @@
 				<div class="text-p-sm text-ink-gray-6 mt-1">
 					{{
 						__(
-							"Address of the LiveCode server that runs the code learners write in programming exercises. Leave it blank to use Frappe's hosted server, or see https://docs.frappe.io/learning/falcon-self-hosting-guide to host your own."
+							"Address of the LiveCode server that runs the code learners write in programming exercises. Leave it blank to use the default hosted server, or host your own."
 						)
 					}}
 				</div>

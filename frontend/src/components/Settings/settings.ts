@@ -572,7 +572,7 @@ export const settingsTree: SettingsGroup[] = [
 		],
 	},
 	{
-		label: 'Frappe Cloud',
+		label: 'Cloud',
 		audience: hasCloudSettings,
 		items: [
 			{

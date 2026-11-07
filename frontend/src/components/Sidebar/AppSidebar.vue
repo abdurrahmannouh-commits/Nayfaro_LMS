@@ -184,12 +184,6 @@
 							@click="toggleHelp"
 						/>
 					</Tooltip>
-					<Tooltip :text="__('Powered by Frappe Learning')">
-						<span
-							class="lucide-zap size-4 text-ink-gray-7 cursor-pointer"
-							@click="redirectToWebsite()"
-						/>
-					</Tooltip>
 				</div>
 				<Tooltip
 					:text="
@@ -216,13 +210,13 @@
 			v-model="showHelpModal"
 			v-model:articles="articles"
 			appName="learning"
-			title="Frappe Learning"
+			:title="brandName"
 			:logo="LMSLogo"
 			:afterSkip="(step) => capture('onboarding_step_skipped_' + step)"
 			:afterSkipAll="() => capture('onboarding_steps_skipped')"
 			:afterReset="(step) => capture('onboarding_step_reset_' + step)"
 			:afterResetAll="() => capture('onboarding_steps_reset')"
-			docsLink="https://docs.frappe.io/learning"
+			docsLink=""
 		/>
 		<IntermediateStepModal
 			v-model="showIntermediateModal"
@@ -244,6 +238,7 @@ import { seesOnboarding } from '@/utils/onboarding'
 import { useSidebar } from '@/stores/sidebar'
 import { useSettings } from '@/stores/settings'
 import { Button, call, Tooltip, toast } from 'frappe-ui'
+import { sessionStore } from '@/stores/session'
 import PageModal from '@/components/Modals/PageModal.vue'
 import LMSLogo from '@/components/Icons/LMSLogo.vue'
 import { useRouter } from 'vue-router'
@@ -672,9 +667,8 @@ const updateSidebarLinks = () => {
 	updateUnreadCount()
 }
 
-const redirectToWebsite = () => {
-	openExternal('https://frappe.io/learning')
-}
+const session = sessionStore()
+const brandName = computed(() => session.brand.name || 'Nayfaaro')
 
 const isStudent = computed(() => {
 	return userResource.data?.is_student

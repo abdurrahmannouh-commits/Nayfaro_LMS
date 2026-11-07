@@ -176,10 +176,9 @@
 		:title="__('Payments app required')"
 		:actions="[
 			{
-				label: __('Get the Payments app'),
+				label: __('OK'),
 				variant: 'solid',
 				onClick: ({ close }: any) => {
-					openPaymentsApp()
 					close()
 				},
 			},
@@ -189,7 +188,7 @@
 			<p class="text-p-base text-ink-gray-7">
 				{{
 					__(
-						'Selling a paid course or certificate needs the Payments app. Install it from the Frappe Marketplace, then turn on pricing here.'
+						'Selling a paid course or certificate requires the Payments app. Please contact your system administrator to enable payments.'
 					)
 				}}
 			</p>
@@ -263,11 +262,6 @@ function setPaidCertificate(val: boolean) {
 	}
 	resource.doc.paid_certificate = val ? 1 : 0
 	markDirty()
-}
-
-function openPaymentsApp() {
-	if (hasCloudSettings()) openSettings('cloud-marketplace')
-	else openExternal('https://frappecloud.com/marketplace/apps/payments')
 }
 
 const timezoneResource = createResource({

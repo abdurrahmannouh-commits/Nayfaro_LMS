@@ -18,8 +18,8 @@ import frappe
 from frappe.utils.telemetry import capture
 from frappe.utils.telemetry.pulse.client import is_enabled as pulse_enabled
 
-DEMO_COURSE_TITLE = "A guide to Frappe Learning"
-DEMO_QUIZ_TITLE = "Do you know Frappe Learning?"
+DEMO_COURSE_TITLES = ("A guide to Nayfaaro", "A guide to Frappe Learning")
+DEMO_QUIZ_TITLES = ("Do you know Nayfaaro?", "Do you know Frappe Learning?")
 
 
 def tracking() -> bool:
@@ -79,7 +79,7 @@ def turned_off(doc, fieldname: str) -> bool:
 
 
 def demo_course() -> str | None:
-	return frappe.db.get_value("LMS Course", {"title": DEMO_COURSE_TITLE}, "name")
+	return frappe.db.get_value("LMS Course", {"title": ["in", DEMO_COURSE_TITLES]}, "name")
 
 
 def outside_demo(demo: str | None) -> dict:
@@ -92,9 +92,9 @@ def outside_demo(demo: str | None) -> dict:
 
 @tracked
 def course_saved(doc, method=None):
-	if doc.title == DEMO_COURSE_TITLE:
+	if doc.title in DEMO_COURSE_TITLES:
 		return
-	own_courses = {"title": ["!=", DEMO_COURSE_TITLE]}
+	own_courses = {"title": ["not in", DEMO_COURSE_TITLES]}
 	if doc.get_doc_before_save() is None:
 		send("course_created", doc, own_courses)
 	if turned_on(doc, "published"):
@@ -129,9 +129,9 @@ def lesson_created(doc, method=None):
 
 @tracked
 def quiz_created(doc, method=None):
-	if doc.title == DEMO_QUIZ_TITLE:
+	if doc.title in DEMO_QUIZ_TITLES:
 		return
-	send("quiz_created", doc, {"title": ["!=", DEMO_QUIZ_TITLE]})
+	send("quiz_created", doc, {"title": ["not in", DEMO_QUIZ_TITLES]})
 
 
 @tracked

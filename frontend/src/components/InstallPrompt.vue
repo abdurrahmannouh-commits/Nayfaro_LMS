@@ -1,7 +1,7 @@
 <template>
 	<Dialog v-model:open="showDialog">
 		<template #title>
-			<h2 class="text-lg-bold">{{ __('Install Frappe Learning') }}</h2>
+			<h2 class="text-lg-bold">{{ __('Install {0}', [brandName]) }}</h2>
 		</template>
 		<template #default>
 			<p>
@@ -29,15 +29,17 @@
 					class="mb-1 flex flex-row items-center justify-between px-3 text-center"
 				>
 					<span class="text-base-bold text-ink-gray-9">
-						{{ __('Install Frappe Learning') }}
+						{{ __('Install {0}', [brandName]) }}
 					</span>
 					<span class="inline-flex items-baseline">
 						<button
 							type="button"
 							:aria-label="__('Close')"
-							class="lucide-x ms-auto size-4 text-ink-gray-7"
+							class="-m-1 ms-auto size-6 p-1 text-ink-gray-7"
 							@click="iosInstallMessage = false"
-						/>
+						>
+							<span class="lucide-x size-4" aria-hidden="true" />
+						</button>
 					</span>
 				</div>
 				<div class="px-3 text-xs text-ink-gray-8">
@@ -62,8 +64,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { Button, Dialog, Popover } from 'frappe-ui'
+import { sessionStore } from '@/stores/session'
+
+const session = sessionStore()
+const brandName = computed(() => session.brand.name || 'Nayfaaro')
 
 const deferredPrompt = ref(null)
 const showDialog = ref(false)

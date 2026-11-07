@@ -25,6 +25,7 @@
 				</Button>
 				<!-- An href makes the Button an anchor that opens in a new tab. -->
 				<Button
+					v-if="state.docs"
 					variant="subtle"
 					:href="state.docs"
 					:label="__('Read the docs')"
@@ -125,8 +126,8 @@ function steps(current: 'chapter' | 'lesson'): Step[] {
 }
 
 const DOCS = {
-	chapter: 'https://docs.frappe.io/learning/add-a-chapter',
-	lesson: 'https://docs.frappe.io/learning/course-creation/adding-a-lesson',
+	chapter: '',
+	lesson: '',
 }
 
 const state = computed(() => {

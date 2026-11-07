@@ -37,7 +37,7 @@ const h = vi.hoisted(() => ({
 	 */
 	lms: {
 		name: 'LMS',
-		label: 'Frappe Learning',
+		label: 'Nayfaaro',
 		rule_types: [
 			{
 				type: 'Student',
