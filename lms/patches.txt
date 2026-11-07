@@ -146,3 +146,4 @@ execute:from lms.patches.v2_0.reconcile_custom_docperm_permlevels import reconci
 execute:from lms.patches.v2_0.reconcile_custom_docperm_permlevels import reconcile; reconcile(["LMS Programming Exercise"])
 lms.patches.v2_0.unhide_existing_test_cases #09-09-2026
 lms.patches.v2_0.keep_quiz_completion_on_passing
+lms.patches.v2_0.rename_demo_course_to_nayfaaro
