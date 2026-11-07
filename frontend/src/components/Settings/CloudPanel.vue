@@ -18,7 +18,7 @@
 			<Button
 				:label="__('Contact support')"
 				icon-left="lucide-life-buoy"
-				href="https://support.frappe.io"
+				href="mailto:support@nayfaaro.com"
 			/>
 		</EmptyStateLayout>
 		<div ref="host" data-cloud-host class="h-full" />

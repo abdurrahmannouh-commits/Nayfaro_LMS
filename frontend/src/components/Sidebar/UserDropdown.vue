@@ -31,21 +31,17 @@ import { usersStore } from '@/stores/user'
 import { useSettings } from '@/stores/settings'
 import { h, computed } from 'vue'
 import { createDialog } from '@/utils/dialogs'
-import FrappeCloudIcon from '@/components/Icons/FrappeCloudIcon.vue'
 import LMSLogo from '@/components/Icons/LMSLogo.vue'
 import SettingsModal from '@/components/Settings/Settings.vue'
 import { canOpenSettings } from '@/components/Settings/settings'
 import { safeUrl } from '@/utils/safeUrl'
-import { openExternal } from '@/utils/openExternal'
 import { pushSettingsHash } from '@/composables/useSettingsHash'
-import { isV1CloudAdmin } from '@/composables/cloudSettings'
 
 const router = useRouter()
 const { logout, branding } = sessionStore()
 let { userResource } = usersStore()
 const settingsStore = useSettings()
 let { isLoggedIn } = sessionStore()
-const frappeCloudBaseEndpoint = 'https://frappecloud.com'
 const $dialog = createDialog
 
 const appName = computed(() =>
@@ -231,11 +227,6 @@ const userDropdownOptions = computed(() => {
 		},
 	]
 })
-
-const loginToFrappeCloud = () => {
-	let redirect_to = '/dashboard/sites/' + userResource.data.sitename
-	openExternal(`${frappeCloudBaseEndpoint}${redirect_to}`)
-}
 
 const clearDemoDataConfirmation = () => {
 	$dialog({

@@ -28,13 +28,7 @@
 
 		<p v-if="missing" class="text-p-sm text-ink-gray-7">
 			{{ sentence[0]
-			}}<a
-				v-if="missing === 'raven'"
-				v-external
-				:href="MARKETPLACE_URL"
-				class="font-medium text-ink-gray-8 underline underline-offset-2"
-				>{{ appName }}</a
-			><span v-else>{{ appName }}</span
+			}}<span class="font-medium text-ink-gray-8">{{ appName }}</span
 			>{{ sentence[1] }}
 		</p>
 	</div>
@@ -61,10 +55,6 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{ enable: [] }>()
-
-// raven_integration installs at the bench and has no marketplace page, so only
-// Raven's half of the sentence is a link.
-const MARKETPLACE_URL = 'https://cloud.frappe.io/marketplace/apps/raven'
 
 // One string with a placeholder, split around the app name at render time. Three
 // separate __() calls could not be reordered by a translator, gave the fragments
