@@ -62,7 +62,7 @@ def create_course():
 		{
 			"title": title,
 			"category": "Business",
-			"tags": "Frappe, Demo",
+			"tags": "Nayfaaro, Demo",
 			"published": 1,
 			"published_on": frappe.utils.now(),
 			"video_link": "VIt_bsbBjLI",
