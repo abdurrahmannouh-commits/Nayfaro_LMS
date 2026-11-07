@@ -21,7 +21,6 @@
 				list="courses"
 				:tab="currentTab"
 				:create-label="__('New Course')"
-				docs="https://docs.frappe.io/learning/create-a-course"
 				@create="newCourseFromEmptyState"
 			/>
 		</template>
